@@ -1,3 +1,12 @@
+<% if user_signed_in? %>
+  <p>Welcome <%= current_user.email %></p>
+  <%= link_to 'Logged In [click to logout]', destroy_user_session_path, :method => :delete %>
+
+
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Mail Contexts</h1>
@@ -36,4 +45,9 @@
 
 <%= link_to 'New Mail context', new_mail_context_path %>
 <div class="container auth">
-  
+  <% else %>
+  <p>You are not signed in.</p>
+  <%= link_to 'Login', new_user_session_path %>
+<% end %>
+
+

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :mail_contexts
    root 'mail_contexts#index'
   # The priority is based upon order of creation: first created -> highest priority.
