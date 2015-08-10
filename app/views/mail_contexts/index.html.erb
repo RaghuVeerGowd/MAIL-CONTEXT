@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Mail Contexts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Message body</th>
+      <th>Starts at</th>
+      <th>Ends at</th>
+      <th>Time part</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mail_contexts.each do |mail_context| %>
+      <tr>
+        <td><%= mail_context.email %></td>
+        <td><%= mail_context.message_body %></td>
+        <td><%= mail_context.starts_at %></td>
+        <td><%= mail_context.ends_at %></td>
+        <td><%= mail_context.time_part %></td>
+        <td><%= mail_context.user_id %></td>
+        <td><%= link_to 'Show', mail_context %></td>
+        <td><%= link_to 'Edit', edit_mail_context_path(mail_context) %></td>
+        <td><%= link_to 'Destroy', mail_context, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mail context', new_mail_context_path %>
+<div class="container auth">
+  

@@ -1,0 +1,2 @@
+module MailContextsHelper
+end
