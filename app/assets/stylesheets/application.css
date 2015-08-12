@@ -10,14 +10,19 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require_font-awesome-ie7.min
+ *= require_font-awesome.min
+ *= require responsive
+ *= require style
  *= require_tree .
  *= require_self
  */
-body{
+/*body{
+	http://html5layouts.com/demo/ravalic/
   background:url('http://www.wallpaperup.com/uploads/wallpapers/2012/08/30/12087/3574f899daef41d2f145eba13ff7840f.jpg');
   background-size:100% 100%;
   background-attachment: fixed; 
   background-repeat:no-repeat;
   font-family: 'Open Sans', sans-serif;
   padding-bottom: 40px;
-}
+}*/

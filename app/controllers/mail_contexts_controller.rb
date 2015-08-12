@@ -28,6 +28,7 @@ class MailContextsController < ApplicationController
 
     respond_to do |format|
       if @mail_context.save
+        UserMailer.welcome_email(@mail_context).deliver_now
         format.html { redirect_to @mail_context, notice: 'Mail context was successfully created.' }
         format.json { render :show, status: :created, location: @mail_context }
       else
