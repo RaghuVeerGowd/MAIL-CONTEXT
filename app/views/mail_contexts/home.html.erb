@@ -12,7 +12,7 @@
 <link href="css/font-awesome.min.css" rel="stylesheet" media="screen">
 <script type="text/javascript" src="js/smoothscroll.js"></script>
 <script src="js/jquery.min.js"></script>
-<title>MAIL AUTOMATA</title>
+<title>RUBY AUTOMATA</title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
           <div class="container">
               <div class="logo-menu">
                   <div class="logo">
-                      <h1>MAIL AUTOMATA</h1>
+                      <h1>RUBY AUTOMATA</h1>
                     </div>
                     <div class="menu">
                     <label for="show-menu" class="show-menu">Show Menu</label>
@@ -31,7 +31,12 @@
                             <li><a href="#service">Services</a></li>
                             <li><a href="#work">Our Work</a></li>
                             <li><a href="#about">About</a></li>
-                            <li><a href="#contact">Sign Up</a></li>
+                            <%if !current_user.present?%>
+                              <li><%= link_to 'Sign In', new_user_session_path %></a></li>
+                            <%else%>
+                              <li><%= link_to 'Logged In [click to logout]', destroy_user_session_path, :method => :delete %></a></li>   
+
+                            <%end%>  
                         </ul>
                     </div>
                 </div>
@@ -43,9 +48,9 @@
       <div class="banner">
           <div class="container">
               <div class="banner-text">
-                  <h2 class="tagline">Heyy! We are creative design studio<br />We create <span>awesomeness</span> by HTML5layouts</h2>
-                    <p class="under-tagline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis faucibus leo. Ut ac arcu a diam mollis semper. In nec blandit nisl, nec cursus lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis faucibus leo. Ut ac arcu a diam mollis semper. In nec blandit nisl, nec cursus lectus.</p>
-                    <button class="mainbutton">Request A Quote</button>
+                  <h2 class="tagline">Heyy! Are YOU ready to experience the RUBY AUTOMATA.<br />We Provide <span>IRB ENVIRONMENT</span> To take ruby tests.</h2>
+                    <p class="under-tagline">This applicaion allows you to take tests for interview candidates.No need to install IRB , any linux environment.Just one click make u feel that ruby console.</p>
+                    <button class="mainbutton">TAKE TEST</button>
                 </div>
             </div>
         </div>
@@ -116,7 +121,7 @@
       <div class="about" id="about">
           <div class="container">
               <div class="section-head">
-                  <h3>About <span>Creative Studio</span></h3>
+                  <h3>About <span>RUBY AUTOMATA</span></h3>
                 </div>
                 <div class="team">
                       <ul>
@@ -130,57 +135,28 @@
         </div>
       
       <div class="contact" id="contact">
-          <div class="container">
-            <% if user_signed_in? %>
-                  <p>Welcome <%= current_user.email %></p>
-                  <%= link_to 'Logged In [click to logout]', destroy_user_session_path, :method => :delete %>
-                <p id="notice"><%= notice %></p>
+          <!-- <div class="container"> -->
+            <%# if user_signed_in? %>
+                  <!-- <p>Welcome <%#= current_user.email %></p> -->
+                  <%#= link_to 'Logged In [click to logout]', destroy_user_session_path, :method => :delete %>
+                <!-- <p id="notice"><%= notice %></p> -->
 
-                <h1>Listing Mail Contexts</h1>
+             <!--    <h1>Listing Mail Contexts</h1> -->
 
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Email</th>
-                      <th>Message body</th>
-                      <th>Starts at</th>
-                      <th>Ends at</th>
-                      <th>Time part</th>
-                      <th>User</th>
-                      <th colspan="3"></th>
-                    </tr>
-                  </thead>
+                
 
-                  <tbody>
-                    <% @mail_contexts.each do |mail_context| %>
-                      <tr>
-                        <td><%= mail_context.email %></td>
-                        <td><%= mail_context.message_body %></td>
-                        <td><%= mail_context.starts_at %></td>
-                        <td><%= mail_context.ends_at %></td>
-                        <td><%= mail_context.time_part %></td>
-                        <td><%= mail_context.user_id %></td>
-                        <td><%= link_to 'Show', mail_context %></td>
-                        <td><%= link_to 'Edit', edit_mail_context_path(mail_context) %></td>
-                        <td><%= link_to 'Destroy', mail_context, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                      </tr>
-                    <% end %>
-                  </tbody>
-                </table>
+             <!--    <br> -->
 
-                <br>
-
-                <%= link_to 'New Mail context', new_mail_context_path %>
-                <div class="container auth">
-            <% else %>
-              <p>You are not signed in.</p>
-                <%= link_to 'Login', new_user_session_path %>
-              <% end %>
-
+                <%#= link_to 'New Mail context', new_mail_context_path %>
+            <!--     <div class="container auth"> -->
+            <%# else %>
+             <!-- <p>You are not signed in.</p> -->
+                <%#= link_to 'Login', new_user_session_path %>
+<!-- 
               <div class="section-head">
                   <h3>Get In <span>Touch </span>(SIGN UP)</h3>
-                </div>
-                <div class="contact-section">
+                </div> -->
+              <!--   <div class="contact-section">
                 <div class="contact-form">
                     <form>
                         <input type="text" name="Name" placeholder="Name" />
@@ -196,8 +172,10 @@
                         <p class="tel">080 4131 7700</p>
                         <p class="mail">carmatec@gmail.com</p>
                   </div>
-                </div>
-            </div>
+                </div>   -->
+              <%# end %>
+
+            <!-- </div> -->
         </div>
     
       <div class="footer">

@@ -20,7 +20,8 @@ class MailContextsController < ApplicationController
   # GET /mail_contexts/1/edit
   def edit
   end
-
+  def home
+  end 
   # POST /mail_contexts
   # POST /mail_contexts.json
   def create
